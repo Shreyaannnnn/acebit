@@ -45,7 +45,7 @@ const Nav = () => {
                             Help
                         </a>
                         <a
-                            href="/buy"
+                            href="/buy_sell_swap"
                             className="bg-[#21bf73] text-[16px] font-bold  text-white px-[20px] py-[12px] rounded-[8px]"
                         >
                             Buy &amp; sell crypto
