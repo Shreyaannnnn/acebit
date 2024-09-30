@@ -30,8 +30,8 @@ const BuySellSwap = () => {
     const [fetched, setFetched] = useState(null)
     const [isConnected, setIsConnected] = useState(false)
     const [accountAddress, setAccountAddress] = useState(null)
-    const [signer, setSigner] = useState(null)
-    const [provider, setProvider] = useState();
+    // const [signer, setSigner] = useState(null)
+    const [provider, setProvider] = useState(null);
     const [currency, setCurrency] = useState(POLYGON_TOKENS[0])
     const [buyCurrency, setbuyCurrency] = useState(POLYGON_TOKENS[1])
 
@@ -42,8 +42,10 @@ const BuySellSwap = () => {
           setProvider(provider)
           try {
             const accounts = await provider.listAccounts();
-            const signer = provider.getSigner()
-            setSigner(signer)
+            // console.log(signer);
+            
+            // const signer = provider.getSigner()
+            // setSigner(signer)
             if (accounts.length > 0) {
               setIsConnected(true);
             //   console.log(accounts[0].address);
@@ -85,6 +87,8 @@ const BuySellSwap = () => {
       const connectWallet = async () => {
         try {
           await ethereum.request({ method: 'eth_requestAccounts' });
+          console.log(provider);
+          
           checkMetaMask();
         } catch (error) {
           console.error('Error connecting to MetaMask:', error);
@@ -114,6 +118,8 @@ const fetchIndicativePrice = async (sell) => {
   const response = await fetch(`https://api.0x.org/swap/permit2/price?${priceParams.toString()}`, { headers });
   const priceData = await response.json();
   setFetched(priceData);
+  console.log(fetched);
+  
   setBuyAmount((priceData.buyAmount / Math.pow(10, buyCurrency.decimals)).toFixed(3))
   console.log('Price data:', priceData);
   return priceData;
