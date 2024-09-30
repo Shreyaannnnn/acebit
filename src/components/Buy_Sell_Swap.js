@@ -194,7 +194,7 @@ const setAllowance = async () => {
       console.log('Transaction confirmed :', confirmationNumber, receipt);
     })
     .on('error', (error) => {
-      console.error('Error in transaction:', error);
+      console.error('Error in transaction :', error);
     });
 };
 
