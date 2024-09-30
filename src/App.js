@@ -1,24 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
+import Crypto from './components/Crypto';
+import Nav from './components/Nav';
+import Buy_Sell_Swap from './components/Buy_Sell_Swap';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      {/* <Nav /> */}
+      <Routes>
+        <Route path="/" element={<Nav />} />
+        <Route path="/buy_sell_swap" element={<Buy_Sell_Swap />} />
+        {/* Add more routes here as needed */}
+      </Routes>
+    </Router>
   );
 }
 
