@@ -154,15 +154,6 @@ export const MAINNET_TOKENS_BY_ADDRESS = {
 export const POLYGON_TOKENS = [
   {
     chainId: 137,
-    name: "Matic",
-    symbol: "MATIC",
-    decimals: 18,
-    address: "0x0000000000000000000000000000000000000000",
-    logoURI:
-      "https://raw.githubusercontent.com/maticnetwork/polygon-token-assets/main/assets/tokenAssets/matic.svg",
-  },
-  {
-    chainId: 137,
     name: "Wrapped Matic",
     symbol: "WMATIC",
     decimals: 18,
