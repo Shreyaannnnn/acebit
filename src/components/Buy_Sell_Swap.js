@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 // import { getContract } from 'viem';
 import { concat, numberToHex, size } from 'viem';
-import { usePrepareTransactionRequest, useSendTransaction } from 'wagmi';
 import { ethers } from 'ethers';
 import { PERMIT2_ADDRESS, POLYGON_TOKENS } from '../utils/constants';
 import { erc20Abi } from 'viem';
 // import { signTypedData } from 'viem/actions';
-import { signTypedData } from 'viem/actions';
-import { mainnet } from 'viem/chains';
+
 // import { WalletConnectConnector } from '@wagmi/core/connectors/walletConnect';
 import Web3 from 'web3';
 const qs = require('qs');
