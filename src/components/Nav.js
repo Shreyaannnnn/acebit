@@ -99,7 +99,9 @@ const Nav = () => {
                                 </div>
                                 <div className="flex justify-center items-center gap-[55px]">
                                     <img
-                                        src="/assets/metatask-DBrQfVvV.svg" />
+                                        src="/assets/metatask-DBrQfVvV.svg" 
+                                        alt=''/>
+                                        
 
                                     <img
                                         src="/assets/worldcoin-E34z80rU.svg"
@@ -570,7 +572,7 @@ const Nav = () => {
                                 dedicated partner team, or use our APIs for a deeper integration.
                             </p>
                             <a
-                                href="#"
+                                href="/"
                                 className="inline-block px-6 py-3 border bg-[black] border-[#21bf73] text-white rounded-lg font-semibold hover:bg-[#0a3923] transition-colors"
                             >
                                 Documentation
@@ -596,13 +598,13 @@ const Nav = () => {
                                     <span className="text-[14px] text-[#6c7689] mr-4">3.</span>
                                     <br />
                                     <span className="text-[14px] text-[#6c7689] mr-4">4.</span>
-                                    <span className="text-gray-400">/*</span>
+                                    <span className="text-gray-400"></span>
                                     <br />
                                     <span className="text-[14px] text-[#6c7689] mr-4">5.</span>
                                     <span className="text-gray-400"> Quick Integration</span>
                                     <br />
                                     <span className="text-[14px] text-[#6c7689] mr-4">6.</span>
-                                    <span className="text-gray-400">*/</span>
+                                    <span className="text-gray-400"></span>
                                     <br />
                                     <span className="text-[14px] text-[#6c7689] mr-4">7.</span>
                                     <br />

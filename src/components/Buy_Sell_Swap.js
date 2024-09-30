@@ -137,7 +137,7 @@ useEffect(() => {
 const onSellChange = async(e) =>{
     const amount = e.target.value;
     setSellAmount(amount)
-    if(!amount == 0){
+    if(!amount === 0){
     fetchIndicativePrice(amount)
     }
 }
@@ -155,29 +155,29 @@ const setAllowance = async () => {
   const amount = sellAmount * Math.pow(10, currency.decimals)
   console.log(amount);
 
-  const tokenAbi = [
-    {
-      constant: false,
-      inputs: [
-        {
-          name: 'spender',
-          type: 'address',
-        },
-        {
-          name: 'amount',
-          type: 'uint256',
-        },
-      ],
-      name: 'approve',
-      outputs: [
-        {
-          name: '',
-          type: 'bool',
-        },
-      ],
-      type: 'function',
-    },
-  ];
+//   const tokenAbi = [
+//     {
+//       constant: false,
+//       inputs: [
+//         {
+//           name: 'spender',
+//           type: 'address',
+//         },
+//         {
+//           name: 'amount',
+//           type: 'uint256',
+//         },
+//       ],
+//       name: 'approve',
+//       outputs: [
+//         {
+//           name: '',
+//           type: 'bool',
+//         },
+//       ],
+//       type: 'function',
+//     },
+//   ];
 
   const tokenContract = new web3.eth.Contract(erc20Abi, tokenAddress);
   const accounts = await web3.eth.getAccounts();
@@ -247,6 +247,8 @@ const handleProceedClick = async() => {
     if(isConnected){
         console.log('press');
         const resu = await setAllowance();
+        console.log(resu);
+        
         const params = {
             sellToken: currency.address, //WETH
             buyToken: buyCurrency.address, //DAI
@@ -718,6 +720,7 @@ const main = () => {
                         <div className="flex flex-col z-20 items-center text-center">
                             <img
                                 src="data:image/svg+xml,%3csvg%20width='65'%20height='64'%20viewBox='0%200%2065%2064'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20filter='url(%23filter0_ii_1274_60035)'%3e%3crect%20x='0.5'%20width='64'%20height='64'%20rx='32'%20fill='black'%3e%3c/rect%3e%3cpath%20d='M22.7582%2031.36V34.64C22.7582%2038.32%2024.9182%2040.28%2028.1182%2040.28C31.3182%2040.28%2033.4782%2038.32%2033.4782%2034.64V31.36C33.4782%2027.8%2031.3182%2025.72%2028.1182%2025.72C24.9182%2025.72%2022.7582%2027.8%2022.7582%2031.36ZM25.3982%2031.24C25.3982%2029.38%2026.3982%2028.08%2028.1182%2028.08C29.7782%2028.08%2030.8382%2029.3%2030.8382%2031.24V34.76C30.8382%2036.66%2029.9982%2037.92%2028.1182%2037.92C26.2982%2037.92%2025.3982%2036.74%2025.3982%2034.76V31.24ZM37.6723%2026L34.0723%2032.32H36.8323L38.7923%2028.8H39.0323V40H41.6723V26H37.6723Z'%20fill='white'%3e%3c/path%3e%3crect%20x='0.75'%20y='0.25'%20width='63.5'%20height='63.5'%20rx='31.75'%20stroke='%2321BF73'%20stroke-width='0.5'%3e%3c/rect%3e%3crect%20x='0.75'%20y='0.25'%20width='63.5'%20height='63.5'%20rx='31.75'%20stroke='url(%23paint0_linear_1274_60035)'%20stroke-width='0.5'%3e%3c/rect%3e%3c/g%3e%3cdefs%3e%3cfilter%20id='filter0_ii_1274_60035'%20x='0.5'%20y='0'%20width='64'%20height='64'%20filterUnits='userSpaceOnUse'%20color-interpolation-filters='sRGB'%3e%3cfeFlood%20flood-opacity='0'%20result='BackgroundImageFix'%3e%3c/feFlood%3e%3cfeBlend%20mode='normal'%20in='SourceGraphic'%20in2='BackgroundImageFix'%20result='shape'%3e%3c/feBlend%3e%3cfeColorMatrix%20in='SourceAlpha'%20type='matrix'%20values='0%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%20127%200'%20result='hardAlpha'%3e%3c/feColorMatrix%3e%3cfeOffset%3e%3c/feOffset%3e%3cfeGaussianBlur%20stdDeviation='13.2915'%3e%3c/feGaussianBlur%3e%3cfeComposite%20in2='hardAlpha'%20operator='arithmetic'%20k2='-1'%20k3='1'%3e%3c/feComposite%3e%3cfeColorMatrix%20type='matrix'%20values='0%200%200%200%200.129412%200%200%200%200%200.74902%200%200%200%200%200.45098%200%200%200%200.25%200'%3e%3c/feColorMatrix%3e%3cfeBlend%20mode='normal'%20in2='shape'%20result='effect1_innerShadow_1274_60035'%3e%3c/feBlend%3e%3cfeColorMatrix%20in='SourceAlpha'%20type='matrix'%20values='0%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%20127%200'%20result='hardAlpha'%3e%3c/feColorMatrix%3e%3cfeOffset%3e%3c/feOffset%3e%3cfeGaussianBlur%20stdDeviation='2.23297'%3e%3c/feGaussianBlur%3e%3cfeComposite%20in2='hardAlpha'%20operator='arithmetic'%20k2='-1'%20k3='1'%3e%3c/feComposite%3e%3cfeColorMatrix%20type='matrix'%20values='0%200%200%200%200.129412%200%200%200%200%200.74902%200%200%200%200%200.45098%200%200%200%200.26%200'%3e%3c/feColorMatrix%3e%3cfeBlend%20mode='normal'%20in2='effect1_innerShadow_1274_60035'%20result='effect2_innerShadow_1274_60035'%3e%3c/feBlend%3e%3c/filter%3e%3clinearGradient%20id='paint0_linear_1274_60035'%20x1='62.6923'%20y1='59.1678'%20x2='44.3938'%20y2='40.8692'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='%23FAFF00'%20stop-opacity='0.8'%3e%3c/stop%3e%3cstop%20offset='1'%20stop-color='white'%20stop-opacity='0'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e"
+                                alt='img'
                             />
                             <p className="text-white text-sm max-w-[230px] mt-4 font-mulish">Enter the amount in crypto or fiat currency that you wish to purchase.</p>
                             <p className="text-white text-sm max-w-[230px] font-mulish"></p>
@@ -725,6 +728,7 @@ const main = () => {
                         <div className="flex flex-col z-20 items-center text-center">
                             <img
                                 src="data:image/svg+xml,%3csvg%20width='65'%20height='64'%20viewBox='0%200%2065%2064'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20filter='url(%23filter0_ii_1274_60039)'%3e%3crect%20x='0.5'%20width='64'%20height='64'%20rx='32'%20fill='black'%3e%3c/rect%3e%3cpath%20d='M21.4594%2031.36V34.64C21.4594%2038.32%2023.6194%2040.28%2026.8194%2040.28C30.0194%2040.28%2032.1794%2038.32%2032.1794%2034.64V31.36C32.1794%2027.8%2030.0194%2025.72%2026.8194%2025.72C23.6194%2025.72%2021.4594%2027.8%2021.4594%2031.36ZM24.0994%2031.24C24.0994%2029.38%2025.0994%2028.08%2026.8194%2028.08C28.4794%2028.08%2029.5394%2029.3%2029.5394%2031.24V34.76C29.5394%2036.66%2028.6994%2037.92%2026.8194%2037.92C24.9994%2037.92%2024.0994%2036.74%2024.0994%2034.76V31.24ZM33.3334%2030.68V31.16H35.9734V30.72C35.9734%2028.9%2037.1934%2028.08%2038.6334%2028.08C40.0734%2028.08%2041.0134%2028.9%2041.0134%2030.28C41.0134%2031.92%2039.8134%2032.58%2037.8134%2033.12C35.2334%2033.82%2033.4134%2035.06%2033.4134%2037.6V40H43.5734V37.6H36.0534V37.36C36.0534%2036.06%2037.0934%2035.64%2039.0534%2035.14C41.9934%2034.4%2043.6534%2033.12%2043.6534%2030.36C43.6534%2027.48%2041.3134%2025.72%2038.5934%2025.72C35.7534%2025.72%2033.3334%2027.4%2033.3334%2030.68Z'%20fill='white'%3e%3c/path%3e%3crect%20x='0.75'%20y='0.25'%20width='63.5'%20height='63.5'%20rx='31.75'%20stroke='%2321BF73'%20stroke-width='0.5'%3e%3c/rect%3e%3crect%20x='0.75'%20y='0.25'%20width='63.5'%20height='63.5'%20rx='31.75'%20stroke='url(%23paint0_linear_1274_60039)'%20stroke-width='0.5'%3e%3c/rect%3e%3c/g%3e%3cdefs%3e%3cfilter%20id='filter0_ii_1274_60039'%20x='0.5'%20y='0'%20width='64'%20height='64'%20filterUnits='userSpaceOnUse'%20color-interpolation-filters='sRGB'%3e%3cfeFlood%20flood-opacity='0'%20result='BackgroundImageFix'%3e%3c/feFlood%3e%3cfeBlend%20mode='normal'%20in='SourceGraphic'%20in2='BackgroundImageFix'%20result='shape'%3e%3c/feBlend%3e%3cfeColorMatrix%20in='SourceAlpha'%20type='matrix'%20values='0%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%20127%200'%20result='hardAlpha'%3e%3c/feColorMatrix%3e%3cfeOffset%3e%3c/feOffset%3e%3cfeGaussianBlur%20stdDeviation='13.2915'%3e%3c/feGaussianBlur%3e%3cfeComposite%20in2='hardAlpha'%20operator='arithmetic'%20k2='-1'%20k3='1'%3e%3c/feComposite%3e%3cfeColorMatrix%20type='matrix'%20values='0%200%200%200%200.129412%200%200%200%200%200.74902%200%200%200%200%200.45098%200%200%200%200.25%200'%3e%3c/feColorMatrix%3e%3cfeBlend%20mode='normal'%20in2='shape'%20result='effect1_innerShadow_1274_60039'%3e%3c/feBlend%3e%3cfeColorMatrix%20in='SourceAlpha'%20type='matrix'%20values='0%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%20127%200'%20result='hardAlpha'%3e%3c/feColorMatrix%3e%3cfeOffset%3e%3c/feOffset%3e%3cfeGaussianBlur%20stdDeviation='2.23297'%3e%3c/feGaussianBlur%3e%3cfeComposite%20in2='hardAlpha'%20operator='arithmetic'%20k2='-1'%20k3='1'%3e%3c/feComposite%3e%3cfeColorMatrix%20type='matrix'%20values='0%200%200%200%200.129412%200%200%200%200%200.74902%200%200%200%200%200.45098%200%200%200%200.26%200'%3e%3c/feColorMatrix%3e%3cfeBlend%20mode='normal'%20in2='effect1_innerShadow_1274_60039'%20result='effect2_innerShadow_1274_60039'%3e%3c/feBlend%3e%3c/filter%3e%3clinearGradient%20id='paint0_linear_1274_60039'%20x1='62.6923'%20y1='59.1678'%20x2='44.3938'%20y2='40.8692'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='%23FAFF00'%20stop-opacity='0.8'%3e%3c/stop%3e%3cstop%20offset='1'%20stop-color='white'%20stop-opacity='0'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e"
+                                alt='img'
                             />
                             <p className="text-white text-sm max-w-[230px] mt-4 font-mulish">Verify your email</p>
                             <p className="text-white text-sm max-w-[230px] font-mulish">and basic information.</p>
@@ -732,6 +736,7 @@ const main = () => {
                         <div className="flex flex-col z-20 items-center text-center">
                             <img
                                 src="data:image/svg+xml,%3csvg%20width='65'%20height='64'%20viewBox='0%200%2065%2064'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20filter='url(%23filter0_ii_1274_60043)'%3e%3crect%20x='0.5'%20width='64'%20height='64'%20rx='32'%20fill='black'%3e%3c/rect%3e%3cpath%20d='M21.4203%2031.36V34.64C21.4203%2038.32%2023.5803%2040.28%2026.7803%2040.28C29.9803%2040.28%2032.1403%2038.32%2032.1403%2034.64V31.36C32.1403%2027.8%2029.9803%2025.72%2026.7803%2025.72C23.5803%2025.72%2021.4203%2027.8%2021.4203%2031.36ZM24.0603%2031.24C24.0603%2029.38%2025.0603%2028.08%2026.7803%2028.08C28.4403%2028.08%2029.5003%2029.3%2029.5003%2031.24V34.76C29.5003%2036.66%2028.6603%2037.92%2026.7803%2037.92C24.9603%2037.92%2024.0603%2036.74%2024.0603%2034.76V31.24ZM33.4944%2026V28.4H39.8344L36.3744%2031.24V33.6H38.8144C40.1544%2033.6%2041.0944%2034.26%2041.0944%2035.6C41.0944%2036.94%2040.1144%2037.92%2038.4544%2037.92C36.6744%2037.92%2035.7344%2036.8%2035.7344%2035.44V34.96H33.0944V35.52C33.0944%2038.3%2035.1144%2040.28%2038.4544%2040.28C41.5744%2040.28%2043.7344%2038.44%2043.7344%2035.6C43.7344%2033.06%2041.9944%2031.72%2040.0544%2031.72H39.5344V31.48L43.4144%2028.32V26H33.4944Z'%20fill='white'%3e%3c/path%3e%3crect%20x='0.75'%20y='0.25'%20width='63.5'%20height='63.5'%20rx='31.75'%20stroke='%2321BF73'%20stroke-width='0.5'%3e%3c/rect%3e%3crect%20x='0.75'%20y='0.25'%20width='63.5'%20height='63.5'%20rx='31.75'%20stroke='url(%23paint0_linear_1274_60043)'%20stroke-width='0.5'%3e%3c/rect%3e%3c/g%3e%3cdefs%3e%3cfilter%20id='filter0_ii_1274_60043'%20x='0.5'%20y='0'%20width='64'%20height='64'%20filterUnits='userSpaceOnUse'%20color-interpolation-filters='sRGB'%3e%3cfeFlood%20flood-opacity='0'%20result='BackgroundImageFix'%3e%3c/feFlood%3e%3cfeBlend%20mode='normal'%20in='SourceGraphic'%20in2='BackgroundImageFix'%20result='shape'%3e%3c/feBlend%3e%3cfeColorMatrix%20in='SourceAlpha'%20type='matrix'%20values='0%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%20127%200'%20result='hardAlpha'%3e%3c/feColorMatrix%3e%3cfeOffset%3e%3c/feOffset%3e%3cfeGaussianBlur%20stdDeviation='13.2915'%3e%3c/feGaussianBlur%3e%3cfeComposite%20in2='hardAlpha'%20operator='arithmetic'%20k2='-1'%20k3='1'%3e%3c/feComposite%3e%3cfeColorMatrix%20type='matrix'%20values='0%200%200%200%200.129412%200%200%200%200%200.74902%200%200%200%200%200.45098%200%200%200%200.25%200'%3e%3c/feColorMatrix%3e%3cfeBlend%20mode='normal'%20in2='shape'%20result='effect1_innerShadow_1274_60043'%3e%3c/feBlend%3e%3cfeColorMatrix%20in='SourceAlpha'%20type='matrix'%20values='0%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%20127%200'%20result='hardAlpha'%3e%3c/feColorMatrix%3e%3cfeOffset%3e%3c/feOffset%3e%3cfeGaussianBlur%20stdDeviation='2.23297'%3e%3c/feGaussianBlur%3e%3cfeComposite%20in2='hardAlpha'%20operator='arithmetic'%20k2='-1'%20k3='1'%3e%3c/feComposite%3e%3cfeColorMatrix%20type='matrix'%20values='0%200%200%200%200.129412%200%200%200%200%200.74902%200%200%200%200%200.45098%200%200%200%200.26%200'%3e%3c/feColorMatrix%3e%3cfeBlend%20mode='normal'%20in2='effect1_innerShadow_1274_60043'%20result='effect2_innerShadow_1274_60043'%3e%3c/feBlend%3e%3c/filter%3e%3clinearGradient%20id='paint0_linear_1274_60043'%20x1='62.6923'%20y1='59.1678'%20x2='44.3938'%20y2='40.8692'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='%23FAFF00'%20stop-opacity='0.8'%3e%3c/stop%3e%3cstop%20offset='1'%20stop-color='white'%20stop-opacity='0'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e"
+                                alt='img'
                             />
                             <p className="text-white text-sm max-w-[230px] mt-4 font-mulish">Enter your crypto</p>
                             <p className="text-white text-sm max-w-[230px] font-mulish">wallet address.</p>
@@ -739,6 +744,7 @@ const main = () => {
                         <div className="flex flex-col z-20 items-center text-center">
                             <img
                                 src="data:image/svg+xml,%3csvg%20width='65'%20height='64'%20viewBox='0%200%2065%2064'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20filter='url(%23filter0_ii_1274_60047)'%3e%3crect%20x='0.5'%20width='64'%20height='64'%20rx='32'%20fill='black'%3e%3c/rect%3e%3cpath%20d='M21.0785%2031.36V34.64C21.0785%2038.32%2023.2385%2040.28%2026.4385%2040.28C29.6385%2040.28%2031.7985%2038.32%2031.7985%2034.64V31.36C31.7985%2027.8%2029.6385%2025.72%2026.4385%2025.72C23.2385%2025.72%2021.0785%2027.8%2021.0785%2031.36ZM23.7185%2031.24C23.7185%2029.38%2024.7185%2028.08%2026.4385%2028.08C28.0985%2028.08%2029.1585%2029.3%2029.1585%2031.24V34.76C29.1585%2036.66%2028.3185%2037.92%2026.4385%2037.92C24.6185%2037.92%2023.7185%2036.74%2023.7185%2034.76V31.24ZM37.9926%2026L32.5126%2034.92V37.24H39.4726V40H42.1126V37.24H44.3926V34.84H42.1126V26H37.9926ZM39.2326%2028.28H39.4726V34.84H35.2726L39.2326%2028.28Z'%20fill='white'%3e%3c/path%3e%3crect%20x='0.75'%20y='0.25'%20width='63.5'%20height='63.5'%20rx='31.75'%20stroke='%2321BF73'%20stroke-width='0.5'%3e%3c/rect%3e%3crect%20x='0.75'%20y='0.25'%20width='63.5'%20height='63.5'%20rx='31.75'%20stroke='url(%23paint0_linear_1274_60047)'%20stroke-width='0.5'%3e%3c/rect%3e%3c/g%3e%3cdefs%3e%3cfilter%20id='filter0_ii_1274_60047'%20x='0.5'%20y='0'%20width='64'%20height='64'%20filterUnits='userSpaceOnUse'%20color-interpolation-filters='sRGB'%3e%3cfeFlood%20flood-opacity='0'%20result='BackgroundImageFix'%3e%3c/feFlood%3e%3cfeBlend%20mode='normal'%20in='SourceGraphic'%20in2='BackgroundImageFix'%20result='shape'%3e%3c/feBlend%3e%3cfeColorMatrix%20in='SourceAlpha'%20type='matrix'%20values='0%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%20127%200'%20result='hardAlpha'%3e%3c/feColorMatrix%3e%3cfeOffset%3e%3c/feOffset%3e%3cfeGaussianBlur%20stdDeviation='13.2915'%3e%3c/feGaussianBlur%3e%3cfeComposite%20in2='hardAlpha'%20operator='arithmetic'%20k2='-1'%20k3='1'%3e%3c/feComposite%3e%3cfeColorMatrix%20type='matrix'%20values='0%200%200%200%200.129412%200%200%200%200%200.74902%200%200%200%200%200.45098%200%200%200%200.25%200'%3e%3c/feColorMatrix%3e%3cfeBlend%20mode='normal'%20in2='shape'%20result='effect1_innerShadow_1274_60047'%3e%3c/feBlend%3e%3cfeColorMatrix%20in='SourceAlpha'%20type='matrix'%20values='0%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%20127%200'%20result='hardAlpha'%3e%3c/feColorMatrix%3e%3cfeOffset%3e%3c/feOffset%3e%3cfeGaussianBlur%20stdDeviation='2.23297'%3e%3c/feGaussianBlur%3e%3cfeComposite%20in2='hardAlpha'%20operator='arithmetic'%20k2='-1'%20k3='1'%3e%3c/feComposite%3e%3cfeColorMatrix%20type='matrix'%20values='0%200%200%200%200.129412%200%200%200%200%200.74902%200%200%200%200%200.45098%200%200%200%200.26%200'%3e%3c/feColorMatrix%3e%3cfeBlend%20mode='normal'%20in2='effect1_innerShadow_1274_60047'%20result='effect2_innerShadow_1274_60047'%3e%3c/feBlend%3e%3c/filter%3e%3clinearGradient%20id='paint0_linear_1274_60047'%20x1='62.6923'%20y1='59.1678'%20x2='44.3938'%20y2='40.8692'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='%23FAFF00'%20stop-opacity='0.8'%3e%3c/stop%3e%3cstop%20offset='1'%20stop-color='white'%20stop-opacity='0'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e"
+                                alt='img'
                             />
                             <p className="text-white text-sm max-w-[230px] mt-4 font-mulish">Pay with your preferred</p>
                             <p className="text-white text-sm max-w-[230px] font-mulish">payment method.</p>
