@@ -23,8 +23,8 @@ const BuySellSwap = () => {
     const [showCurrencyModal, setShowCurrencyModal] = useState(false); // Added state for showCurrencyModal
 
     const [showCurrencyModal1, setShowCurrencyModal1] = useState(false); // Added state for showCurrencyModal
-    const [selectedCurrency, setSelectedCurrency] = useState(null);
-    const [selectedCurrency1, setSelectedCurrency1] = useState(null);
+    // const [selectedCurrency, setSelectedCurrency] = useState(null);
+    // const [selectedCurrency1, setSelectedCurrency1] = useState(null);
     const [sellAmount, setSellAmount] = useState(0);
     const [buyAmount, setBuyAmount] = useState(0);
     const [fetched, setFetched] = useState(null)

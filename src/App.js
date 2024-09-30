@@ -1,6 +1,4 @@
-import logo from './logo.svg';
 import './App.css';
-import Crypto from './components/Crypto';
 import Nav from './components/Nav';
 import Buy_Sell_Swap from './components/Buy_Sell_Swap';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
